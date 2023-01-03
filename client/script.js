@@ -3,7 +3,7 @@ import user from "./assets/user.svg";
 
 const form = document.querySelector("form");
 const chatContainer = document.querySelector("#chat_container");
-
+const hero=document.querySelector('.hero');
 let loadInterval;
 
 function loader(element) {
@@ -57,7 +57,7 @@ function chatStripe(isAi, value, uniqueId) {
 
 const handleSubmit = async (e) => {
   e.preventDefault();
-
+hero.classList.add('deactivate')
   const data = new FormData(form);
 
   //users chat stripe
@@ -78,7 +78,7 @@ const handleSubmit = async (e) => {
 
   // fetch the data from the server
 
-  const response = await fetch("https://chat-gpt-clone-nhin.onrender.com/", {
+  const response = await fetch("http://localhost:5000", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
